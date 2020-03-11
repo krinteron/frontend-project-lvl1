@@ -2,4 +2,4 @@
 
 import * as game from "../src/index.js";
 
-game.helloUser();
+game.evenGame();
