@@ -1,24 +1,21 @@
 import readlineSync from 'readline-sync';
 
-const checkEven = (num) => {
-    return num % 2 === 0 ? 'yes' : 'no';
-};
+const checkEven = (num) => (num % 2 === 0 ? 'yes' : 'no');
 
-const giveRandom = (min, max) => {
-    return Math.floor(Math.random() * (max - min)) + min;
-};
+const giveRandom = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
 const calc = (oper1, oper2, oper3) => {
     switch (oper2) {
-        case '+':
-            return oper1 + oper3;
-        case '-':
-            return oper1 - oper3;
-        case '*':
-            return oper1 * oper3;
-        default:
-            console.log(`Operator ${oper2} not recognized.`);
+    case '+':
+        return oper1 + oper3;
+    case '-':
+        return oper1 - oper3;
+    case '*':
+        return oper1 * oper3;
+    default:
+        console.log(`Operator ${oper2} not recognized.`);
     }
+    return '';
 };
 
 const giveGcd = (dig1, dig2) => {
@@ -31,11 +28,10 @@ const giveGcd = (dig1, dig2) => {
         }
     }
     console.log('check input');
+    return '';
 };
 
-const giveRandId = (arr) => {
-    return Math.floor(Math.random() * arr.length);
-};
+const giveRandId = (arr) => (Math.floor(Math.random() * arr.length));
 
 const giveProgression = (a1, shift, length) => {
     const arr = [a1];
@@ -43,7 +39,7 @@ const giveProgression = (a1, shift, length) => {
     for (let i = 1; i <= length; i += 1) {
         sum += shift;
         arr.push(sum);
-    };
+    }
     return arr;
 };
 
@@ -68,17 +64,17 @@ export const evenGame = () => {
     console.log('Answer "yes" if the number is even, otherwise answer "no".');
     for (let i = 0; i < 3; i += 1) {
         const number = giveRandom(1, 1000);
-        const flag = checkEven(number);
+        const result = checkEven(number);
         console.log(`Question: ${number}`);
         const answer = readlineSync.question('Your answer:  ');
-        if (answer === flag) {
+        if (answer === result) {
             console.log('Correct!');
-            continue;
+        } else {
+            console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
+            console.log(`Let's try again, ${user}!`);
+            return;
         }
-        console.log(`"${answer}" is wrong answer ;(. Correct answer was "${flag}".`);
-        console.log(`Let's try again, ${user}!`);
-        return;
-    };
+    }
     console.log(`Congratulations, ${user}!`);
 };
 
@@ -96,12 +92,12 @@ export const calcGame = () => {
         const answer = readlineSync.question('Your answer:  ');
         if (answer === result) {
             console.log('Correct!');
-            continue;
+        } else {
+            console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
+            console.log(`Let's try again, ${user}!`);
+            return;
         }
-        console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
-        console.log(`Let's try again, ${user}!`);
-        return;
-    };
+    }
     console.log(`Congratulations, ${user}!`);
 };
 
@@ -116,12 +112,12 @@ export const gcdGame = () => {
         const answer = readlineSync.question('Your answer:  ');
         if (Number(answer) === result) {
             console.log('Correct!');
-            continue;
+        } else {
+            console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
+            console.log(`Let's try again, ${user}!`);
+            return;
         }
-        console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
-        console.log(`Let's try again, ${user}!`);
-        return;
-    };
+    }
     console.log(`Congratulations, ${user}!`);
 };
 
@@ -130,21 +126,21 @@ export const progressionGame = () => {
     console.log('What number is missing in the progression?');
     for (let i = 0; i < 3; i += 1) {
         const shift = giveRandom(1, 10);
-        const start = giveRandom(1, 100)
-        let progression = giveProgression(start, shift, 10);
+        const start = giveRandom(1, 100);
+        const progression = giveProgression(start, shift, 10);
         const hideId = giveRandId(progression);
-        let result = progression[hideId];
+        const result = progression[hideId];
         progression[hideId] = '..';
         console.log(`Question: ${progression}`);
         const answer = readlineSync.question('Your answer:  ');
         if (Number(answer) === result) {
             console.log('Correct!');
-            continue;
+        } else {
+            console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
+            console.log(`Let's try again, ${user}!`);
+            return;
         }
-        console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
-        console.log(`Let's try again, ${user}!`);
-        return;
-    };
+    }
     console.log(`Congratulations, ${user}!`);
 };
 
@@ -158,11 +154,11 @@ export const primeGame = () => {
         const answer = readlineSync.question('Your answer:  ');
         if (answer === result) {
             console.log('Correct!');
-            continue;
+        } else {
+            console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
+            console.log(`Let's try again, ${user}!`);
+            return;
         }
-        console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
-        console.log(`Let's try again, ${user}!`);
-        return;
-    };
+    }
     console.log(`Congratulations, ${user}!`);
 };
