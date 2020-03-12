@@ -38,13 +38,22 @@ const giveRandId = (arr) => {
 };
 
 const giveProgression = (a1, shift, length) => {
-    let arr = [a1];
+    const arr = [a1];
     let sum = a1;
     for (let i = 1; i <= length; i += 1) {
         sum += shift;
         arr.push(sum);
     };
     return arr;
+};
+
+const checkPrime = (num) => {
+    for (let i = 2; i <= num / 2; i += 1) {
+        if (num % i === 0) {
+            return 'no';
+        }
+    }
+    return 'yes';
 };
 
 export const helloUser = () => {
@@ -129,6 +138,25 @@ export const progressionGame = () => {
         console.log(`Question: ${progression}`);
         const answer = readlineSync.question('Your answer:  ');
         if (Number(answer) === result) {
+            console.log('Correct!');
+            continue;
+        }
+        console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
+        console.log(`Let's try again, ${user}!`);
+        return;
+    };
+    console.log(`Congratulations, ${user}!`);
+};
+
+export const primeGame = () => {
+    const user = helloUser();
+    console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+    for (let i = 0; i < 3; i += 1) {
+        const questNum = giveRandom(1, 500);
+        const result = checkPrime(questNum);
+        console.log(`Question: ${questNum}`);
+        const answer = readlineSync.question('Your answer:  ');
+        if (answer === result) {
             console.log('Correct!');
             continue;
         }

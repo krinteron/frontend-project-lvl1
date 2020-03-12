@@ -13,3 +13,6 @@ Game brain-gcd:
 
 Game brain-progression
 [![asciicast](https://asciinema.org/a/309621.svg)](https://asciinema.org/a/309621)
+
+Game brain-prime
+[![asciicast](https://asciinema.org/a/309636.svg)](https://asciinema.org/a/309636)
