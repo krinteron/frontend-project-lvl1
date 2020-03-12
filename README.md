@@ -7,3 +7,6 @@ Game brain-even:
 
 Game brain-calc:
 [![asciicast](https://asciinema.org/a/vF4PnB2jehSCafkKY8qmfTfHD.svg)](https://asciinema.org/a/vF4PnB2jehSCafkKY8qmfTfHD)
+
+Game brain-gcd:
+[![asciicast](https://asciinema.org/a/7mck1fy0KsBkrdVgBCRZHfoVz.svg)](https://asciinema.org/a/7mck1fy0KsBkrdVgBCRZHfoVz)

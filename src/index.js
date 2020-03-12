@@ -58,8 +58,40 @@ export const calcGame = () => {
         const operator = operations[randId];
         const result = calc(a, operator, b);
         console.log(`Question: ${a} ${operator} ${b}`);
-        const answer = Number(readlineSync.question('Your answer:  '));
+        const answer = readlineSync.question('Your answer:  ');
         if (answer === result) {
+            console.log('Correct!');
+            continue;
+        }
+        console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
+        console.log(`Let's try again, ${user}!`);
+        return;
+    }
+    console.log(`Congratulations, ${user}!`);
+};
+
+const giveGcd = (dig1, dig2) => {
+    const digMin = Math.min(dig1, dig2);
+    const digMax = Math.max(dig1, dig2);
+    const divider = Math.min(Math.floor(digMax / 2), digMin);
+    for (let i = divider; i > 0; i -= 1) {
+        if (dig1 % i === 0 && dig2 % i === 0) {
+            return i;
+        }
+    }
+    console.log('check input');
+};
+
+export const gcdGame = () => {
+    const user = helloUser();
+    console.log('Find the greatest common divisor of given numbers.')
+    for (let i = 0; i < 3; i += 1) {
+        const a = giveRandom(1, 50);
+        const b = giveRandom(1, 50);
+        const result = giveGcd(a, b);
+        console.log(`Question: ${a} ${b}`);
+        const answer = readlineSync.question('Your answer:  ');
+        if (Number(answer) === result) {
             console.log('Correct!');
             continue;
         }
