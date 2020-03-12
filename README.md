@@ -3,10 +3,13 @@
 ![Node.js CI](https://github.com/krinteron/frontend-project-lvl1/workflows/Node.js%20CI/badge.svg)
 
 Game brain-even:
-[![asciicast](https://asciinema.org/a/ZoUcmR8MqBoOe6lv9navnxs39.svg)](https://asciinema.org/a/ZoUcmR8MqBoOe6lv9navnxs39)
+[![asciicast](https://asciinema.org/a/309321.svg)](https://asciinema.org/a/309321)
 
 Game brain-calc:
-[![asciicast](https://asciinema.org/a/vF4PnB2jehSCafkKY8qmfTfHD.svg)](https://asciinema.org/a/vF4PnB2jehSCafkKY8qmfTfHD)
+[![asciicast](https://asciinema.org/a/309524.svg)](https://asciinema.org/a/309524)
 
 Game brain-gcd:
-[![asciicast](https://asciinema.org/a/7mck1fy0KsBkrdVgBCRZHfoVz.svg)](https://asciinema.org/a/7mck1fy0KsBkrdVgBCRZHfoVz)
+[![asciicast](https://asciinema.org/a/309602.svg)](https://asciinema.org/a/309602)
+
+Game brain-progression
+[![asciicast](https://asciinema.org/a/309621.svg)](https://asciinema.org/a/309621)
