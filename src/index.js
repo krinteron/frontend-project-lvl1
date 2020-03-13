@@ -1,10 +1,10 @@
 import readlineSync from 'readline-sync';
 
-const checkEven = (num) => (num % 2 === 0 ? 'yes' : 'no');
+export const isEven = (num) => (num % 2 === 0 ? 'yes' : 'no');
 
-const giveRandom = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+export const getRandom = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
-const calc = (oper1, oper2, oper3) => {
+export const calc = (oper1, oper2, oper3) => {
     switch (oper2) {
     case '+':
         return oper1 + oper3;
@@ -18,7 +18,7 @@ const calc = (oper1, oper2, oper3) => {
     return '';
 };
 
-const giveGcd = (dig1, dig2) => {
+export const giveGcd = (dig1, dig2) => {
     const digMin = Math.min(dig1, dig2);
     const digMax = Math.max(dig1, dig2);
     const divider = Math.min(Math.floor(digMax / 2), digMin);
@@ -31,11 +31,11 @@ const giveGcd = (dig1, dig2) => {
     return '';
 };
 
-const giveRandId = (arr) => (Math.floor(Math.random() * arr.length));
+export const getRandId = (arr) => (Math.floor(Math.random() * arr.length));
 
-const giveProgression = (a1, shift, length) => {
-    const arr = [a1];
-    let sum = a1;
+export const getProgression = (start, shift, length) => {
+    const arr = [start];
+    let sum = start;
     for (let i = 1; i <= length; i += 1) {
         sum += shift;
         arr.push(sum);
@@ -43,7 +43,7 @@ const giveProgression = (a1, shift, length) => {
     return arr;
 };
 
-const checkPrime = (num) => {
+export const isPrime = (num) => {
     for (let i = 2; i <= num / 2; i += 1) {
         if (num % i === 0) {
             return 'no';
@@ -52,113 +52,9 @@ const checkPrime = (num) => {
     return 'yes';
 };
 
-export const helloUser = () => {
+export const getName = () => {
     console.log('Welcome to the Brain Games!');
     const name = readlineSync.question('May I have your name? ');
     console.log(`Hello, ${name}`);
     return name;
-};
-
-export const evenGame = () => {
-    const user = helloUser();
-    console.log('Answer "yes" if the number is even, otherwise answer "no".');
-    for (let i = 0; i < 3; i += 1) {
-        const number = giveRandom(1, 1000);
-        const result = checkEven(number);
-        console.log(`Question: ${number}`);
-        const answer = readlineSync.question('Your answer:  ');
-        if (answer === result) {
-            console.log('Correct!');
-        } else {
-            console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
-            console.log(`Let's try again, ${user}!`);
-            return;
-        }
-    }
-    console.log(`Congratulations, ${user}!`);
-};
-
-export const calcGame = () => {
-    const user = helloUser();
-    console.log('What is the result of the expression?');
-    const operations = ['+', '-', '*'];
-    for (let i = 0; i < 3; i += 1) {
-        const a = giveRandom(1, 10);
-        const b = giveRandom(1, 10);
-        const randId = giveRandId(operations);
-        const operator = operations[randId];
-        const result = calc(a, operator, b);
-        console.log(`Question: ${a} ${operator} ${b}`);
-        const answer = readlineSync.question('Your answer:  ');
-        if (answer === result) {
-            console.log('Correct!');
-        } else {
-            console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
-            console.log(`Let's try again, ${user}!`);
-            return;
-        }
-    }
-    console.log(`Congratulations, ${user}!`);
-};
-
-export const gcdGame = () => {
-    const user = helloUser();
-    console.log('Find the greatest common divisor of given numbers.');
-    for (let i = 0; i < 3; i += 1) {
-        const a = giveRandom(1, 50);
-        const b = giveRandom(1, 50);
-        const result = giveGcd(a, b);
-        console.log(`Question: ${a} ${b}`);
-        const answer = readlineSync.question('Your answer:  ');
-        if (Number(answer) === result) {
-            console.log('Correct!');
-        } else {
-            console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
-            console.log(`Let's try again, ${user}!`);
-            return;
-        }
-    }
-    console.log(`Congratulations, ${user}!`);
-};
-
-export const progressionGame = () => {
-    const user = helloUser();
-    console.log('What number is missing in the progression?');
-    for (let i = 0; i < 3; i += 1) {
-        const shift = giveRandom(1, 10);
-        const start = giveRandom(1, 100);
-        const progression = giveProgression(start, shift, 10);
-        const hideId = giveRandId(progression);
-        const result = progression[hideId];
-        progression[hideId] = '..';
-        console.log(`Question: ${progression}`);
-        const answer = readlineSync.question('Your answer:  ');
-        if (Number(answer) === result) {
-            console.log('Correct!');
-        } else {
-            console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
-            console.log(`Let's try again, ${user}!`);
-            return;
-        }
-    }
-    console.log(`Congratulations, ${user}!`);
-};
-
-export const primeGame = () => {
-    const user = helloUser();
-    console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-    for (let i = 0; i < 3; i += 1) {
-        const questNum = giveRandom(1, 500);
-        const result = checkPrime(questNum);
-        console.log(`Question: ${questNum}`);
-        const answer = readlineSync.question('Your answer:  ');
-        if (answer === result) {
-            console.log('Correct!');
-        } else {
-            console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
-            console.log(`Let's try again, ${user}!`);
-            return;
-        }
-    }
-    console.log(`Congratulations, ${user}!`);
 };

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import * as game from '../src/index.js';
+import { getName } from '../src/index.js';
 
-game.helloUser();
+getName();
