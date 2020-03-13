@@ -13,7 +13,7 @@ export default () => {
         const operator = operations[randId];
         const result = calc(a, operator, b);
         console.log(`Question: ${a} ${operator} ${b}`);
-        const answer = Number(readlineSync.question('Your answer:  '));
+        const answer = readlineSync.question('Your answer:  ');
         const total = isRight(answer, result, user, i);
         if (!total) return '';
     }

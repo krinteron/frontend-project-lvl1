@@ -81,7 +81,7 @@ export const getName = (gameName) => {
 };
 
 export const isRight = (answer, result, user, iteration) => {
-    if (answer === result) {
+    if (answer === String(result)) {
         console.log('Correct!');
         if (iteration === 2) console.log(`Congratulations, ${user}!`);
         return true;

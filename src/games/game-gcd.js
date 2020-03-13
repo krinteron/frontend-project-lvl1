@@ -10,7 +10,7 @@ export default () => {
         const b = getRandom(1, 50);
         const result = getGcd(a, b);
         console.log(`Question: ${a} ${b}`);
-        const answer = Number(readlineSync.question('Your answer:  '));
+        const answer = readlineSync.question('Your answer:  ');
         const total = isRight(answer, result, user, i);
         if (!total) return '';
     }

@@ -13,7 +13,7 @@ export default () => {
         const result = progression[hideId];
         progression[hideId] = '..';
         console.log(`Question: ${progression}`);
-        const answer = Number(readlineSync.question('Your answer:  '));
+        const answer = readlineSync.question('Your answer:  ');
         const total = isRight(answer, result, user, i);
         if (!total) return '';
     }
