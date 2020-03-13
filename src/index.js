@@ -75,7 +75,7 @@ export const getName = (gameName) => {
         console.log('What number is missing in the progression?');
         break;
     default:
-        console.log('check input getName');
+        break;
     }
     return name;
 };
