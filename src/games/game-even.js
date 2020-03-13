@@ -9,13 +9,8 @@ export default () => {
         const result = brain.isEven(number);
         console.log(`Question: ${number}`);
         const answer = readlineSync.question('Your answer:  ');
-        if (answer === result) {
-            console.log('Correct!');
-        } else {
-            console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
-            console.log(`Let's try again, ${user}!`);
-            return;
-        }
+        const total = brain.isRight(answer, result, user, i);
+        if (!total) return '';
     }
-    console.log(`Congratulations, ${user}!`);
+    return '';
 };

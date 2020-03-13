@@ -58,3 +58,14 @@ export const getName = () => {
     console.log(`Hello, ${name}`);
     return name;
 };
+
+export const isRight = (answer, result, user, iteration) => {
+    if (answer === result) {
+        console.log('Correct!');
+        if (iteration === 2) console.log(`Congratulations, ${user}!`);
+        return true;
+    }
+    console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
+    console.log(`Let's try again, ${user}!`);
+    return false;
+};

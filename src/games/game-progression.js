@@ -12,14 +12,9 @@ export default () => {
         const result = progression[hideId];
         progression[hideId] = '..';
         console.log(`Question: ${progression}`);
-        const answer = readlineSync.question('Your answer:  ');
-        if (Number(answer) === result) {
-            console.log('Correct!');
-        } else {
-            console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
-            console.log(`Let's try again, ${user}!`);
-            return;
-        }
+        const answer = Number(readlineSync.question('Your answer:  '));
+        const total = brain.isRight(answer, result, user, i);
+        if (!total) return '';
     }
-    console.log(`Congratulations, ${user}!`);
+    return '';
 };
