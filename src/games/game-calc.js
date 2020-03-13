@@ -1,5 +1,7 @@
 import readlineSync from 'readline-sync';
-import { getName, getRandom, getRandId, isRight, calc } from '../index.js';
+import {
+    getName, getRandom, getRandId, isRight, calc,
+} from '../index.js';
 
 export default () => {
     const user = getName('calc');
