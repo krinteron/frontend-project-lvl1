@@ -18,7 +18,7 @@ export const calc = (oper1, oper2, oper3) => {
     return '';
 };
 
-export const giveGcd = (dig1, dig2) => {
+export const getGcd = (dig1, dig2) => {
     const digMin = Math.min(dig1, dig2);
     const digMax = Math.max(dig1, dig2);
     const divider = Math.min(Math.floor(digMax / 2), digMin);
@@ -52,10 +52,31 @@ export const isPrime = (num) => {
     return 'yes';
 };
 
-export const getName = () => {
+export const getName = (gameName) => {
     console.log('Welcome to the Brain Games!');
     const name = readlineSync.question('May I have your name? ');
     console.log(`Hello, ${name}`);
+    switch (gameName) {
+    case 'hello':
+        break;
+    case 'calc':
+        console.log('What is the result of the expression?');
+        break;
+    case 'even':
+        console.log('Answer "yes" if the number is even. Otherwise answer "no".');
+        break;
+    case 'gcd':
+        console.log('Find the greatest common divisor of given numbers.');
+        break;
+    case 'prime':
+        console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+        break;
+    case 'progression':
+        console.log('What number is missing in the progression?');
+        break;
+    default:
+        console.log('check input getName');
+    }
     return name;
 };
 
