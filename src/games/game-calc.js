@@ -1,5 +1,5 @@
 import runGame from '../index.js';
-import { getRandom } from '../utils.js';
+import getRandom from '../utils.js';
 
 const task = 'What is the result of the expression?';
 
@@ -15,8 +15,7 @@ const calc = (operand1, operand2, operator) => {
         return operand1 * operand2;
     default:
         console.log(`Operator ${operator} not recognized.`);
-    }
-    return;
+    };
 };
 
 const getRandId = (arr) => (Math.floor(Math.random() * arr.length));

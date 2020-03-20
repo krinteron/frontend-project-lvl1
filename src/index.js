@@ -19,7 +19,6 @@ export default (task, getGameData) => {
         }
         console.log('Correct!');
         i += 1;
-    };
+    }
     console.log(`Congratulations, ${name}!`);
-    return;
 };
