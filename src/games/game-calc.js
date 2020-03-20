@@ -15,7 +15,8 @@ const calc = (operand1, operand2, operator) => {
         return operand1 * operand2;
     default:
         console.log(`Operator ${operator} not recognized.`);
-    };
+    }
+    return;
 };
 
 const getRandId = (arr) => (Math.floor(Math.random() * arr.length));

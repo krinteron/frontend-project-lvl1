@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { getName } from '../src/index.js';
+import runGame from '../src/index.js';
 
-getName('hello');
+runGame('helloOnly');
