@@ -1,17 +1,17 @@
-import readlineSync from 'readline-sync';
-import {
-    getName, getRandom, isEven, isRight,
-} from '../index.js';
+import runGame from '../index.js';
+import { getRandom } from '../utils.js';
 
-export default () => {
-    const user = getName('even');
-    for (let i = 0; i < 3; i += 1) {
-        const number = getRandom(1, 1000);
-        const result = isEven(number);
-        console.log(`Question: ${number}`);
-        const answer = readlineSync.question('Your answer:  ');
-        const total = isRight(answer, result, user, i);
-        if (!total) return '';
-    }
-    return '';
+const task = 'Answer "yes" if the number is even. Otherwise answer "no".';
+
+const isEven = (num) => (num % 2 === 0 ? 'yes' : 'no');
+
+const getGameData = () => {
+    const randNumber = getRandom(1, 1000);
+    const roundData = {
+        quest: randNumber,
+        rightAnswer: isEven(randNumber)
+    };
+    return roundData;
 };
+
+export default () => runGame(task, getGameData);

@@ -1,21 +1,32 @@
-import readlineSync from 'readline-sync';
-import {
-    getName, getRandom, getProgression, getRandId, isRight,
-} from '../index.js';
+import runGame from '../index.js';
+import { getRandom } from '../utils.js';
 
-export default () => {
-    const user = getName('progression');
-    for (let i = 0; i < 3; i += 1) {
-        const shift = getRandom(1, 10);
-        const start = getRandom(1, 100);
-        const progression = getProgression(start, shift, 10);
-        const hideId = getRandId(progression);
-        const result = progression[hideId];
-        progression[hideId] = '..';
-        console.log(`Question: ${progression}`);
-        const answer = readlineSync.question('Your answer:  ');
-        const total = isRight(answer, result, user, i);
-        if (!total) return '';
+const task = 'What number is missing in the progression?';
+
+const getProgression = (start, shift, length) => {
+    const arr = [start];
+    let sum = start;
+    for (let i = 1; i <= length; i += 1) {
+        sum += shift;
+        arr.push(sum);
     }
-    return '';
+    return arr;
 };
+
+const getRandId = (arr) => (Math.floor(Math.random() * arr.length));
+
+const getGameData = () => {
+    const shift = getRandom(1, 10);
+    const start = getRandom(1, 100);
+    const progression = getProgression(start, shift, 10);
+    const hideId = getRandId(progression);
+    const lostNumber = progression[hideId];
+    progression[hideId] = '..';
+    const roundData = {
+        quest: progression,
+        rightAnswer: lostNumber
+    };
+    return roundData;
+};
+
+export default () => runGame(task, getGameData);

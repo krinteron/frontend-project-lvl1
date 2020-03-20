@@ -1,17 +1,24 @@
-import readlineSync from 'readline-sync';
-import {
-    getName, getRandom, isPrime, isRight,
-} from '../index.js';
+import runGame from '../index.js';
+import { getRandom } from '../utils.js';
 
-export default () => {
-    const user = getName('prime');
-    for (let i = 0; i < 3; i += 1) {
-        const number = getRandom(1, 500);
-        const result = isPrime(number);
-        console.log(`Question: ${number}`);
-        const answer = readlineSync.question('Your answer:  ');
-        const total = isRight(answer, result, user, i);
-        if (!total) return '';
+const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+const isPrime = (num) => {
+    for (let i = 2; i <= num / 2; i += 1) {
+        if (num % i === 0) {
+            return 'no';
+        }
     }
-    return '';
+    return 'yes';
 };
+
+const getGameData = () => {
+    const randNumber = getRandom(1, 500);
+    const roundData = {
+        quest: randNumber,
+        rightAnswer: isPrime(randNumber)
+    };
+    return roundData;
+};
+
+export default () => runGame(task, getGameData);
