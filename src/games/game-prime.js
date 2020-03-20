@@ -16,7 +16,7 @@ const getGameData = () => {
     const randNumber = getRandom(1, 500);
     const roundData = {
         quest: randNumber,
-        rightAnswer: isPrime(randNumber)
+        rightAnswer: isPrime(randNumber),
     };
     return roundData;
 };

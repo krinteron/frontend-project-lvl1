@@ -21,7 +21,7 @@ const getGameData = () => {
     const b = getRandom(1, 50);
     const roundData = {
         quest: `${a} ${b}`,
-        rightAnswer: getGcd(a, b)
+        rightAnswer: getGcd(a, b),
     };
     return roundData;
 };

@@ -24,7 +24,7 @@ const getGameData = () => {
     progression[hideId] = '..';
     const roundData = {
         quest: progression,
-        rightAnswer: lostNumber
+        rightAnswer: lostNumber,
     };
     return roundData;
 };

@@ -9,7 +9,7 @@ const getGameData = () => {
     const randNumber = getRandom(1, 1000);
     const roundData = {
         quest: randNumber,
-        rightAnswer: isEven(randNumber)
+        rightAnswer: isEven(randNumber),
     };
     return roundData;
 };

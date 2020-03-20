@@ -28,7 +28,7 @@ const getGameData = () => {
     const randOperator = operations[randId];
     const roundData = {
         quest: `${a} ${randOperator} ${b}`,
-        rightAnswer: calc(a, b, randOperator)
+        rightAnswer: calc(a, b, randOperator),
     };
     return roundData;
 };
