@@ -2,21 +2,6 @@ import readlineSync from 'readline-sync';
 
 export const isEven = (num) => (num % 2 === 0 ? 'yes' : 'no');
 
-export const getRandom = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-
-export const calc = (oper1, oper2, oper3) => {
-    switch (oper2) {
-    case '+':
-        return oper1 + oper3;
-    case '-':
-        return oper1 - oper3;
-    case '*':
-        return oper1 * oper3;
-    default:
-        console.log(`Operator ${oper2} not recognized.`);
-    }
-    return '';
-};
 
 export const getGcd = (dig1, dig2) => {
     const digMin = Math.min(dig1, dig2);
@@ -31,7 +16,7 @@ export const getGcd = (dig1, dig2) => {
     return '';
 };
 
-export const getRandId = (arr) => (Math.floor(Math.random() * arr.length));
+
 
 export const getProgression = (start, shift, length) => {
     const arr = [start];
@@ -53,14 +38,12 @@ export const isPrime = (num) => {
 };
 
 export const getName = (gameName) => {
-    console.log('Welcome to the Brain Games!');
-    const name = readlineSync.question('May I have your name? ');
-    console.log(`Hello, ${name}`);
+
     switch (gameName) {
     case 'hello':
         break;
     case 'calc':
-        console.log('What is the result of the expression?');
+        console.log();
         break;
     case 'even':
         console.log('Answer "yes" if the number is even. Otherwise answer "no".');
@@ -89,4 +72,36 @@ export const isRight = (answer, result, user, iteration) => {
     console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
     console.log(`Let's try again, ${user}!`);
     return false;
+};
+
+
+
+const sumRounds = 3;
+const roundNumber = (number) => {
+    if (number === sumRounds) {
+        console.log(`Congratulations, ${name}!`);
+        return;
+    };
+};
+
+export default (task, getGameData) => {
+    console.log('Welcome to the Brain Games!');
+    const name = readlineSync.question('May I have your name? ');
+    console.log(`Hello, ${name}`);
+    console.log(task);
+    let i = 0;
+    while (i < sumRounds) {
+        const { quest, rightAnswer } = getGameData();
+        console.log(`Question: ${quest}`);
+        const answer = readlineSync.question('Your answer:  ');
+        if (answer !== String(rightAnswer)) {
+            console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
+            console.log(`Let's try again, ${name}!`);
+            return;
+        }
+        console.log('Correct!');
+        i += 1;
+    };
+    console.log(`Congratulations, ${name}!`);
+    return;
 };

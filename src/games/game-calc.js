@@ -1,21 +1,36 @@
-import readlineSync from 'readline-sync';
-import {
-    getName, getRandom, getRandId, isRight, calc,
-} from '../index.js';
+import runGame from '../index.js';
+import { getRandom } from '../utils.js';
 
-export default () => {
-    const user = getName('calc');
-    const operations = ['+', '-', '*'];
-    for (let i = 0; i < 3; i += 1) {
-        const a = getRandom(1, 10);
-        const b = getRandom(1, 10);
-        const randId = getRandId(operations);
-        const operator = operations[randId];
-        const result = calc(a, operator, b);
-        console.log(`Question: ${a} ${operator} ${b}`);
-        const answer = readlineSync.question('Your answer:  ');
-        const total = isRight(answer, result, user, i);
-        if (!total) return '';
+const task = 'What is the result of the expression?';
+
+const operations = ['+', '-', '*'];
+
+const calc = (operand1, operand2, operator) => {
+    switch (operator) {
+    case '+':
+        return operand1 + operand2;
+    case '-':
+        return operand1 - operand2;
+    case '*':
+        return operand1 * operand2;
+    default:
+        console.log(`Operator ${operator} not recognized.`);
     }
-    return '';
+    return;
 };
+
+const getRandId = (arr) => (Math.floor(Math.random() * arr.length));
+
+const getGameData = () => {
+    const a = getRandom(1, 10);
+    const b = getRandom(1, 10);
+    const randId = getRandId(operations);
+    const randOperator = operations[randId];
+    const roundData = {
+        quest: `${a} ${randOperator} ${b}`,
+        rightAnswer: calc(a, b, randOperator)
+    };
+    return roundData;
+};
+
+export default () => runGame(task, getGameData);
