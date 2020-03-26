@@ -18,10 +18,9 @@ const isPrime = (num) => {
 };
 
 const getGameData = () => {
-  const question = getRandom(1, 500);
   const rightAnswer = isPrime(question) ? 'yes' : 'no';
   const roundData = {
-    question,
+    question: getRandom(1, 500),
     rightAnswer,
   };
   return roundData;
