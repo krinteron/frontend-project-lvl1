@@ -12,16 +12,17 @@ const getGcd = (dig1, dig2) => {
             return i;
         }
     }
-    console.log('check input');
     return '';
 };
 
 const getGameData = () => {
     const a = getRandom(1, 50);
     const b = getRandom(1, 50);
+    const question = `${a} ${b}`;
+    const rightAnswer = String(getGcd(a, b));
     const roundData = {
-        quest: `${a} ${b}`,
-        rightAnswer: getGcd(a, b),
+        question,
+        rightAnswer
     };
     return roundData;
 };

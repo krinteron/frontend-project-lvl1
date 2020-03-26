@@ -3,28 +3,25 @@ import getRandom from '../utils.js';
 
 const task = 'What number is missing in the progression?';
 
-const getProgression = (start, shift, length) => {
-    const arr = [start];
-    let sum = start;
-    for (let i = 1; i <= length; i += 1) {
-        sum += shift;
-        arr.push(sum);
+const getProgression = () => {
+    const lengthProgression = 10;
+    const progression = [];
+    const start = getRandom(1, 100);
+    const diff = getRandom(1, 10);
+    for (let i = 0; i < lengthProgression; i += 1) {
+        progression.push(start + diff * i);
     }
-    return arr;
+    return progression;
 };
 
-const getRandId = (arr) => (Math.floor(Math.random() * arr.length));
-
-const getGameData = () => {
-    const shift = getRandom(1, 10);
-    const start = getRandom(1, 100);
-    const progression = getProgression(start, shift, 10);
-    const hideId = getRandId(progression);
-    const lostNumber = progression[hideId];
-    progression[hideId] = '..';
+const getGameData = () => {    
+    const question = getProgression();
+    const questionId = getRandom(0, question.length);
+    const rightAnswer = String(question[questionId]);
+    question[questionId] = '..';
     const roundData = {
-        quest: progression,
-        rightAnswer: lostNumber,
+        question,
+        rightAnswer,
     };
     return roundData;
 };

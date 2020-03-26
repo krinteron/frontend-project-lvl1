@@ -14,21 +14,20 @@ const calc = (operand1, operand2, operator) => {
     case '*':
         return operand1 * operand2;
     default:
-        console.log(`Operator ${operator} not recognized.`);
         return false;
     }
 };
 
-const getRandId = (arr) => (Math.floor(Math.random() * arr.length));
-
 const getGameData = () => {
     const a = getRandom(1, 10);
     const b = getRandom(1, 10);
-    const randId = getRandId(operations);
-    const randOperator = operations[randId];
+    const randomId = getRandom(0, operations.length);
+    const randomOperator = operations[randomId];
+    const question = `${a} ${randomOperator} ${b}`;
+    const rightAnswer = String(calc(a, b, randomOperator));
     const roundData = {
-        quest: `${a} ${randOperator} ${b}`,
-        rightAnswer: calc(a, b, randOperator),
+        question,
+        rightAnswer
     };
     return roundData;
 };

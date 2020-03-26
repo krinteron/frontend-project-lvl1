@@ -2,4 +2,4 @@
 
 import runGame from '../src/index.js';
 
-runGame('helloOnly');
+runGame();

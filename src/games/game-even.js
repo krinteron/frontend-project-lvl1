@@ -3,13 +3,14 @@ import getRandom from '../utils.js';
 
 const task = 'Answer "yes" if the number is even. Otherwise answer "no".';
 
-const isEven = (num) => (num % 2 === 0 ? 'yes' : 'no');
+const isEven = (num) => (num % 2 === 0);
 
 const getGameData = () => {
-    const randNumber = getRandom(1, 1000);
+    const question = getRandom(1, 1000);
+    const rightAnswer = isEven(question) ? 'yes' : 'no';
     const roundData = {
-        quest: randNumber,
-        rightAnswer: isEven(randNumber),
+        question,
+        rightAnswer
     };
     return roundData;
 };
