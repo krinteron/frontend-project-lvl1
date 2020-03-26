@@ -30,3 +30,15 @@ Game brain-progression
 Game brain-prime
 
 [![asciicast](https://asciinema.org/a/309636.svg)](https://asciinema.org/a/309636)
+
+## Getting started
+
+### Requirements
+
+Node.js 13+
+
+### Installing
+
+```
+npm install brain-games (test)
+```
