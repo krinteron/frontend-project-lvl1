@@ -11,23 +11,23 @@ The package provides a small set of mathematical **mini-games** that run in the 
 - **Brain-prime:** Answer "yes" if given number is prime. Otherwise answer "no"
 - **Brain-progression:** What number is missing in the progression?
 
-Game brain-even:
+### Game brain-even:
 
 [![asciicast](https://asciinema.org/a/309321.svg)](https://asciinema.org/a/309321)
 
-Game brain-calc:
+### Game brain-calc:
 
 [![asciicast](https://asciinema.org/a/309524.svg)](https://asciinema.org/a/309524)
 
-Game brain-gcd:
+### Game brain-gcd:
 
 [![asciicast](https://asciinema.org/a/309602.svg)](https://asciinema.org/a/309602)
 
-Game brain-progression
+### Game brain-progression
 
 [![asciicast](https://asciinema.org/a/309621.svg)](https://asciinema.org/a/309621)
 
-Game brain-prime
+### Game brain-prime
 
 [![asciicast](https://asciinema.org/a/309636.svg)](https://asciinema.org/a/309636)
 
