@@ -1,7 +1,13 @@
 {
   "name": "frontend-project-lvl1",
   "version": "1.0.0",
-  "description": "",
+  "description": "This educational project contains a set of mathematical console games",
+  "keywords": [
+    "brain-games",
+    "hexlet",
+    "games",
+    "educational games"
+  ],
   "main": "src/index.js",
   "type": "module",
   "scripts": {
