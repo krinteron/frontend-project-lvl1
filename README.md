@@ -20,7 +20,7 @@ Node.js 13+
 ### Installing
 
 ```
-npm install -g brain-games
+npm link
 ```
 
 ## Examples
