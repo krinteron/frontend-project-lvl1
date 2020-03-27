@@ -3,8 +3,6 @@ import getRandom from '../utils.js';
 
 const task = 'What is the result of the expression?';
 
-const operations = ['+', '-', '*'];
-
 const calc = (operand1, operand2, operator) => {
   switch (operator) {
     case '+':
@@ -19,6 +17,7 @@ const calc = (operand1, operand2, operator) => {
 };
 
 const getGameData = () => {
+  const operations = ['+', '-', '*'];
   const a = getRandom(1, 10);
   const b = getRandom(1, 10);
   const randomId = getRandom(0, operations.length);
