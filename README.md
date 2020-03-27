@@ -5,11 +5,25 @@
 The package provides a small set of mathematical **mini-games** that run in the console. This is the first training project from the **Hexlet** team.
 
 ## Includes
-- **Brain-calc:** What is the result of the expression?
-- **Brain-even:** Answer "yes" if number even otherwise answer "no"
+- **Brain-calc:** Calculate the mathematical expression.
+- **Brain-even:** Say "yes" if the number is even, otherwise "no".
 - **Brain-gcd:** Find the greatest common divisor of given numbers.
-- **Brain-prime:** Answer "yes" if given number is prime. Otherwise answer "no"
-- **Brain-progression:** What number is missing in the progression?
+- **Brain-prime:** Say "yes" if the number is prime, otherwise "no".
+- **Brain-progression:** Find the missing number in the number row.
+
+## Getting started
+
+### Requirements
+
+Node.js 13+
+
+### Installing
+
+```
+npm install -g brain-games
+```
+
+## Examples
 
 ### Game brain-even:
 
@@ -30,15 +44,3 @@ The package provides a small set of mathematical **mini-games** that run in the 
 ### Game brain-prime
 
 [![asciicast](https://asciinema.org/a/309636.svg)](https://asciinema.org/a/309636)
-
-## Getting started
-
-### Requirements
-
-Node.js 13+
-
-### Installing
-
-```
-npm install brain-games (test)
-```
