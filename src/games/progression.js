@@ -3,11 +3,9 @@ import getRandom from '../utils.js';
 
 const task = 'What number is missing in the progression?';
 
-const getProgression = () => {
+const getProgression = (start, diff) => {
   const lengthProgression = 10;
   const progression = [];
-  const start = getRandom(1, 100);
-  const diff = getRandom(1, 10);
   for (let i = 0; i < lengthProgression; i += 1) {
     progression.push(start + diff * i);
   }
@@ -15,10 +13,12 @@ const getProgression = () => {
 };
 
 const getGameData = () => {
-  const question = getProgression();
-  const questionId = getRandom(0, question.length);
-  const rightAnswer = String(question[questionId]);
-  question[questionId] = '..';
+  const start = getRandom(1, 100);
+  const diff = getRandom(1, 10);
+  const question = getProgression(start, diff);
+  const lostId = getRandom(0, question.length - 1);
+  const rightAnswer = String(question[lostId]);
+  question[lostId] = '..';
   const roundData = {
     question,
     rightAnswer,

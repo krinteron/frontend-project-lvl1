@@ -20,7 +20,7 @@ const getGameData = () => {
   const operations = ['+', '-', '*'];
   const a = getRandom(1, 10);
   const b = getRandom(1, 10);
-  const randomId = getRandom(0, operations.length);
+  const randomId = getRandom(0, operations.length - 1);
   const randomOperator = operations[randomId];
   const question = `${a} ${randomOperator} ${b}`;
   const rightAnswer = String(calc(a, b, randomOperator));
